@@ -1,5 +1,11 @@
 const RateLimiterFactory = require('../utils/rateLimiterFactory');
 
+exports.apiLimiter = RateLimiterFactory.create({
+  windowMinutes: 60,
+  maxRequests: 120,
+  message: 'Too many requests from this Ip, please try again in an hour!',
+});
+
 exports.loginLimiter = RateLimiterFactory.create({
   windowMinutes: 10,
   maxRequests: 5,
